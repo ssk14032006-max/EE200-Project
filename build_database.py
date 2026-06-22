@@ -13,8 +13,8 @@ library -- so the app works immediately without re-indexing on every restart.
 import pickle
 from fingerprint import build_database
 
-SONG_FOLDER = "song_library"
-OUTPUT_PATH = "database.pkl"
+SONG_FOLDER = "wav_files"
+OUTPUT_PATH = "database (2).pkl"
 
 if __name__ == "__main__":
     print(f"Indexing songs in '{SONG_FOLDER}/' ...")
