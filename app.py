@@ -89,7 +89,7 @@ st.markdown(f"""
 # ----------------------------------------------------------------------
 @st.cache_resource
 def load_database():
-    with open("database (2).pkl", "rb") as f:
+    with open("database.pkl", "rb") as f:
         return pickle.load(f)
 
 
