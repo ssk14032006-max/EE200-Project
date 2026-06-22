@@ -19,6 +19,27 @@ share.streamlit.io. packages.txt installs ffmpeg (needed for mp3/m4a).
 import os
 import pickle
 
+def reassemble_database():
+    # Only reassemble if the full database doesn't already exist
+    if not os.path.exists('database.pkl'):
+        print("Reassembling database parts...")
+        # Use a list of the parts in order
+        parts = ['database.pkl.partaa', 'database.pkl.partab', 'database.pkl.partac', 
+                 'database.pkl.partad', 'database.pkl.partae', 'database.pkl.partaf']
+        
+        with open('database.pkl', 'wb') as outfile:
+            for part in parts:
+                with open(part, 'rb') as infile:
+                    outfile.write(infile.read())
+        print("Reassembly compl ete.")
+
+# Run this before loading the database
+reassemble_database()
+
+# Now load the reassembled file
+with open('database.pkl', 'rb') as f:
+    database = pickle.load(f)
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
