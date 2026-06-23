@@ -1,6 +1,6 @@
 # Sonic Signatures — Q3B App
 
-Matches the structure shown in the demo video: Library / Identify / Batch
+Matches the structure required: Library / Identify / Batch
 tabs, dark+teal theme, pipeline timing breakdown, cluster score, candidate
 ranking, and the three explanatory plots (constellation, full-song
 fingerprint with query window highlighted, offset-histogram spike).
