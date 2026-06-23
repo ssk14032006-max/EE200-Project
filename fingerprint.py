@@ -16,13 +16,13 @@ from collections import defaultdict, Counter
 from audio_io import load_audio, AUDIO_EXTENSIONS
 
 # ---- Tunable parameters (keep consistent between indexing and querying!) ----
-NEIGHBORHOOD_SIZE = 20
-AMP_THRESHOLD = 10
+NEIGHBORHOOD_SIZE = 10
+AMP_THRESHOLD = 5
 NPERSEG = 1024
-TIME_WINDOW = 1.0
-FAN_OUT = 5
+TIME_WINDOW = 3.0
+FAN_OUT = 15
 DT_ROUND = 2
-MATCH_THRESHOLD = 15  # below this score, report "no match"
+MATCH_THRESHOLD = 20  # below this score, report "no match"
 
 
 def get_peaks(data, sr, nperseg=NPERSEG, neighborhood_size=NEIGHBORHOOD_SIZE,
