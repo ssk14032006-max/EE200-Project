@@ -272,7 +272,7 @@ def run_identification(data, sr):
             Where in the song?
         </h2>
         <p style="color: {UNMUTED}; font-size: 15px; line-height: 1.6;">
-            The <b> style="color: {ACCENT};">{len(result['t_peaks']):,}clip was converted into a time-frequency map (left);; brighter means louder at that frequency and moment. From that rich image, only the 
+            The <b> style="color: #9ca3af;">{len(result['t_peaks']):,}clip was converted into a time-frequency map (left);; brighter means louder at that frequency and moment. From that rich image, only the 
                most prominent peaks</b> were kept (right). Discarding amplitude and phase makes the
             robust to EQ, volume changes, and mild noise.
         </p>
