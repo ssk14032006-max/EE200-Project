@@ -271,7 +271,7 @@ def run_identification(data, sr):
             Where in the song?
         </h2>
         <p style="color: {MUTED}; font-size: 15px; line-height: 1.6;">
-            The <b style="color: oasis;">{len(result['t_peaks']):,} fingerprint hashes<\b> were looked up against every indexed track. Below is the full fingerprint of <i> <\i>
+            The <b style="color: oasis;"> fingerprint hashes<\b> were looked up against every indexed track. Below is the full fingerprint of <i> <\i>
             reconstructed from the database. Each dot is a stored hash anchor. The highlighted window is exactly where yhe query clip sits inside the full song.
         </p>
     </div>
@@ -293,7 +293,7 @@ def run_identification(data, sr):
         </h2>
         <p style="color: {MUTED}; font-size: 15px; line-height: 1.6;">
             Every matched hash votes for a time offset (database frame minus query frame). Chance matches scatter votes randomly, forming a flat noise floor. A genuine match makes them 
-            converge: <b style="color: {ACCENT_ORANGE};">{len(result['t_peaks']):,} agreed on a single offset<\b>. That spike cannot be a coincidence.
+            converge: <b style="color: {ACCENT_ORANGE};"> agreed on a single offset<\b>. That spike cannot be a coincidence.
         </p>
     </div>
   """, unsafe_allow_html=True)
