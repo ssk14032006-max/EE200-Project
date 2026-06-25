@@ -76,10 +76,9 @@ SAMPLES_DIR = "samples"
 
 st.markdown(f"""
 <div style="display:flex;align-items:center;gap:10px;margin-bottom:2px;">
-  <div style="font-size:24px;color:{ACCENT};">▌▌▌</div>
-  <div style="font-size:28px;font-weight:800;">EE200<span style="color:{ACCENT};">:</span> Audio Fingerprinting</div>
+  <div style="font-size:28px;font-weight:800;">EE<span style="color:{ACCENT};">200</span>: Audio Fingerprinting</div>
 </div>
-<div style="color:{MUTED};font-size:11px;letter-spacing:2px;margin-bottom:6px;">SIGNALS, SYSTEMS &amp; NETWORKS · PROJECT DEMO</div>
+<div style="color:{MUTED};font-size:11px;letter-spacing:2px;margin-bottom:6px;">SIGNALS, SYSTEMS &amp; NETWORKS · PROJECT</div>
 <div style="color:#9ca3af;font-size:14px;margin-bottom:18px;">Index a library of songs as spectrogram fingerprints, then identify any short clip against it.</div>
 """, unsafe_allow_html=True)
 
@@ -254,7 +253,7 @@ def run_identification(data, sr):
             From spectrogram to constellation
         </h2>
         <p style="color: {MUTED}; font-size: 15px; line-height: 1.6;">
-            The clip was converted into a time-frequency map (left);; brighter means louder at that frequency and moment. From that rich image, only the 
+            The clip was converted into a time-frequency map (left); brighter means louder at that frequency and moment. From that rich image, only the 
               <b> style="color: {ACCENT};">{len(result['t_peaks']):,} most prominent peaks</b> were kept (right). Discarding amplitude and phase makes the
             robust to EQ, volume changes, and mild noise.
         </p>
@@ -272,9 +271,8 @@ def run_identification(data, sr):
             Where in the song?
         </h2>
         <p style="color: {MUTED}; font-size: 15px; line-height: 1.6;">
-            The <b> style="color: #9ca3af;">{len(result['t_peaks']):,}clip was converted into a time-frequency map (left);; brighter means louder at that frequency and moment. From that rich image, only the 
-               most prominent peaks</b> were kept (right). Discarding amplitude and phase makes the
-            robust to EQ, volume changes, and mild noise.
+            The <b> style="color: oasis;">{len(result['t_peaks']):,} fingerprint hashes<\b> were looked up against every indexed track. Below is the full fingerprint of <i> <\i>
+            reconstructed from the database. Each dot is a stored hash anchor. The highlighted window is exactly where yhe query clip sits inside the full song.
         </p>
     </div>
   """, unsafe_allow_html=True)
@@ -284,7 +282,22 @@ def run_identification(data, sr):
     else:
         st.caption("No matching track to reconstruct against.")
 
-    st.markdown("##### STEP 2 · THE PROOF  The alignment spike")
+    st.markdown(f"""
+    <div style="margin-bottom: 24px;">
+        <div style="color: {ACCENT}; font-size: 10px; font-weight: 600; 
+                    letter-spacing: 1px; text-transform: uppercase;">
+            STEP 3 · THE PROOF
+        </div>
+        <h2 style="color: white; margin-top: 4px; font-size: 20px;">
+            The alignment spike
+        </h2>
+        <p style="color: {MUTED}; font-size: 15px; line-height: 1.6;">
+            Every matched hash votes for a time offset (database frame minus query frame). Chance matches scatter votes randomly, forming a flat noise floor. A genuine match makes them 
+            converge: <b> style="color: {ACCENT_ORANGE};">{len(result['t_peaks']):,} agreed on a single offset<\b>. That spike cannot be a coincidence.
+        </p>
+    </div>
+  """, unsafe_allow_html=True)
+  st.markdown("##### STEP 2 · THE PROOF  The alignment spike")
     fig3 = plot_step3(result)
     if fig3 is not None:
         st.pyplot(fig3, clear_figure=True)
