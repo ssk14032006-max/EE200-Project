@@ -24,8 +24,7 @@ def reassemble_database():
     if not os.path.exists('database.pkl'):
         print("Reassembling database parts...")
         # Use a list of the parts in order
-        parts = ['database.pkl.partaa', 'database.pkl.partab', 'database.pkl.partac', 
-                 'database.pkl.partad', 'database.pkl.partae', 'database.pkl.partaf']
+        parts = ['database_part_aa.pkl', 'database_part_ab.pkl']
         
         with open('database.pkl', 'wb') as outfile:
             for part in parts:
