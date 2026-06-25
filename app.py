@@ -222,10 +222,10 @@ def render_pipeline_timing(timings, best_offset):
         ("④", "DB LOOKUP", f"{timings['db_lookup_ms']:.0f} ms", f"{timings['n_tracks_in_db']} tracks"),
         ("⑤", "SCORING", f"{timings['scoring_ms']:.0f} ms", f"offset {best_offset}"),
     ]
-    for col, (label, value, sub) in zip(cols, steps):
+    for col, (index, label, value, sub) in zip(cols, steps):
         col.markdown(f"""
         <div style="text-align:center;">
-          <div style="font-size:10px;color:{ACCENT};letter-spacing:1px;">{label}</div>
+          <div style="font-size:10px;color:{ACCENT};letter-spacing:1px;">{index}</div>
           <div style="font-size:10px;color:{MUTED};letter-spacing:1px;">{label}</div>
           <div style="font-size:17px;color:{WHITE};font-weight:700;">{value}</div>
           <div style="font-size:10px;color:{MUTED};">{sub}</div>
