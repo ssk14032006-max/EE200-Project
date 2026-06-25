@@ -278,7 +278,6 @@ def run_identification(data, sr):
         </p>
     </div>
   """, unsafe_allow_html=True)
-  st.markdown("##### Step 2 · DATABASE SEARCH  Where in the song?")
     fig2 = plot_step2(result, database)
     if fig2 is not None:
         st.pyplot(fig2, clear_figure=True)
