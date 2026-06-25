@@ -16,7 +16,7 @@ from collections import defaultdict, Counter
 from audio_io import load_audio, AUDIO_EXTENSIONS
 
 # ---- Tunable parameters (keep consistent between indexing and querying!) ----
-NEIGHBORHOOD_SIZE = 20
+NEIGHBORHOOD_SIZE = 10
 AMP_THRESHOLD = 5
 NPERSEG = 1024
 TIME_WINDOW = 3.0
