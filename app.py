@@ -253,7 +253,7 @@ def run_identification(data, sr):
         <h2 style="color: white; margin-top: 4px; font-size: 20px;">
             From spectrogram to constellation
         </h2>
-        <p style="color: {UNMUTED}; font-size: 15px; line-height: 1.6;">
+        <p style="color: {MUTED}; font-size: 15px; line-height: 1.6;">
             The clip was converted into a time-frequency map (left);; brighter means louder at that frequency and moment. From that rich image, only the 
               <b> style="color: {ACCENT};">{len(result['t_peaks']):,} most prominent peaks</b> were kept (right). Discarding amplitude and phase makes the
             robust to EQ, volume changes, and mild noise.
@@ -271,7 +271,7 @@ def run_identification(data, sr):
         <h2 style="color: white; margin-top: 4px; font-size: 20px;">
             Where in the song?
         </h2>
-        <p style="color: {UNMUTED}; font-size: 15px; line-height: 1.6;">
+        <p style="color: {MUTED}; font-size: 15px; line-height: 1.6;">
             The <b> style="color: #9ca3af;">{len(result['t_peaks']):,}clip was converted into a time-frequency map (left);; brighter means louder at that frequency and moment. From that rich image, only the 
                most prominent peaks</b> were kept (right). Discarding amplitude and phase makes the
             robust to EQ, volume changes, and mild noise.
