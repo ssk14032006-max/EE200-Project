@@ -24,7 +24,7 @@ def reassemble_database():
     if not os.path.exists('database.pkl'):
         print("Reassembling database parts...")
         # Use a list of the parts in order
-        parts = ['database_part_aa.pkl', 'database_part_ab.pkl']
+        parts = ['database.pkl.partaa', 'database.pkl.partab', 'database.pkl.partac', 'database.pkl.partad', 'database.pkl.partae', 'database.pkl.partaf']
         
         with open('database.pkl', 'wb') as outfile:
             for part in parts:
@@ -115,7 +115,8 @@ def plot_step1(result):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11, 3.3))
     ax1.pcolormesh(result["times"], result["frequencies"],
                     10 * np.log10(result["Sxx"] + 1e-10), cmap="magma", shading="auto")
-    ax1.set_title("Spectrogram", fontsize=10)
+    ax1.scatter(times[x_peaks],frequencies[y_peaks],s=4,c='white',alpha=0.5)
+    ax1.set_title("Spectrogram with Fingerprint Peaks", fontsize=10)
     ax1.set_xlabel("time (s)"); ax1.set_ylabel("frequency (Hz)")
 
     ax2.scatter(result["t_peaks"], result["f_peaks"], s=4, c=ACCENT)
