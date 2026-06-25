@@ -297,7 +297,6 @@ def run_identification(data, sr):
         </p>
     </div>
   """, unsafe_allow_html=True)
-  st.markdown("##### STEP 2 · THE PROOF  The alignment spike")
     fig3 = plot_step3(result)
     if fig3 is not None:
         st.pyplot(fig3, clear_figure=True)
