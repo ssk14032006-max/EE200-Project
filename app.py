@@ -158,7 +158,7 @@ def plot_step3(result):
     colors = [ACCENT_ORANGE if i == peak_idx else "#374151" for i in range(len(ys))]
 
     fig, ax = plt.subplots(figsize=(11, 3.3))
-    ax.bar(xs, ys, width=0.05, color=colors)
+    ax.bar(xs, ys, width=0.5, color=colors)
     span = (max(xs) - min(xs)) if len(xs) > 1 else 1
     ax.annotate(
         f"{ys[peak_idx]} hashes\nalign here",
