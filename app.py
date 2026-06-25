@@ -216,17 +216,18 @@ def render_match_banner(result):
 def render_pipeline_timing(timings, best_offset):
     cols = st.columns(5)
     steps = [
-        ("① SPECTROGRAM", f"{timings['spectrogram_ms']:.0f} ms", timings["spectrogram_shape"]),
-        ("② CONSTELLATION", f"{timings['constellation_ms']:.0f} ms", f"{timings['n_peaks']} peaks"),
-        ("③ HASHING", f"{timings['hashing_ms']:.0f} ms", f"{timings['n_hashes']:,} hashes"),
-        ("④ DB LOOKUP", f"{timings['db_lookup_ms']:.0f} ms", f"{timings['n_tracks_in_db']} tracks"),
-        ("⑤ SCORING", f"{timings['scoring_ms']:.0f} ms", f"offset {best_offset}"),
+        ("①", "SPECTROGRAM", f"{timings['spectrogram_ms']:.0f} ms", timings["spectrogram_shape"]),
+        ("②", "CONSTELLATION", f"{timings['constellation_ms']:.0f} ms", f"{timings['n_peaks']} peaks"),
+        ("③", "HASHING", f"{timings['hashing_ms']:.0f} ms", f"{timings['n_hashes']:,} hashes"),
+        ("④", "DB LOOKUP", f"{timings['db_lookup_ms']:.0f} ms", f"{timings['n_tracks_in_db']} tracks"),
+        ("⑤", "SCORING", f"{timings['scoring_ms']:.0f} ms", f"offset {best_offset}"),
     ]
     for col, (label, value, sub) in zip(cols, steps):
         col.markdown(f"""
         <div style="text-align:center;">
+          <div style="font-size:10px;color:{ACCENT};letter-spacing:1px;">{label}</div>
           <div style="font-size:10px;color:{MUTED};letter-spacing:1px;">{label}</div>
-          <div style="font-size:17px;color:{ACCENT};font-weight:700;">{value}</div>
+          <div style="font-size:17px;color:{WHITE};font-weight:700;">{value}</div>
           <div style="font-size:10px;color:{MUTED};">{sub}</div>
         </div>""", unsafe_allow_html=True)
     st.caption(f"total {timings['total_ms']:.0f} ms")
