@@ -115,7 +115,7 @@ def plot_step1(result):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11, 3.3))
     ax1.pcolormesh(result["times"], result["frequencies"],
                     10 * np.log10(result["Sxx"] + 1e-10), cmap="magma", shading="auto")
-    ax1.scatter(times[t_peaks],frequencies[f_peaks],s=4,c='white',alpha=0.5)
+    ax1.scatter(result[t_peaks],result[f_peaks],s=4,c='white',alpha=0.5)
     ax1.set_title("Spectrogram with Fingerprint Peaks", fontsize=10)
     ax1.set_xlabel("time (s)"); ax1.set_ylabel("frequency (Hz)")
 
