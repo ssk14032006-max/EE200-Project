@@ -242,17 +242,17 @@ def run_identification(data, sr):
     st.markdown(render_candidate_bars(result["candidates"]), unsafe_allow_html=True)
 
     st.markdown("---")
-    st.markdown("##### Step 1 · Feature extraction — from spectrogram to constellation")
+    st.markdown("##### STEP 1 · FEATURE EXTRACTION  ##From spectrogram to constellation")
     st.pyplot(plot_step1(result), clear_figure=True)
 
-    st.markdown("##### Step 2 · Database search — where in the song?")
+    st.markdown("##### Step 2 · DATABASE SEARCH  Where in the song?")
     fig2 = plot_step2(result, database)
     if fig2 is not None:
         st.pyplot(fig2, clear_figure=True)
     else:
         st.caption("No matching track to reconstruct against.")
 
-    st.markdown("##### Step 3 · The proof — the alignment spike")
+    st.markdown("##### STEP 2 · THE PROOF  The alignment spike")
     fig3 = plot_step3(result)
     if fig3 is not None:
         st.pyplot(fig3, clear_figure=True)
