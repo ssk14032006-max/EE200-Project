@@ -292,10 +292,6 @@ def run_identification(data, sr):
         <h2 style="color: white; margin-top: 4px; font-size: 20px;">
             The alignment spike
         </h2>
-        <p style="color: {MUTED}; font-size: 15px; line-height: 1.6;">
-            Every matched hash votes for a time offset (database frame minus query frame). Chance matches scatter votes randomly, forming a flat noise floor. A genuine match makes them 
-            converge: <b style="color: {ACCENT_ORANGE};">{peak_count:,} agreed on a single offset<\b>. That spike cannot be a coincidence.
-        </p>
     </div>
   """, unsafe_allow_html=True)
     fig3, peak_count = plot_step3(result)
