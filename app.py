@@ -412,13 +412,50 @@ with batch_tab:
             progress.progress((i + 1) / len(batch_files), text=f"Identifying ... {i + 1}/{len(batch_files)}")
 
         results_df = pd.DataFrame(rows)
-        st.markdown("**Results**")
-        st.dataframe(results_df, use_container_width=True, hide_index=True)
 
         n_matched = int((results_df["prediction"] != "none").sum())
         n_none = int((results_df["prediction"] == "none").sum())
-        st.caption(f"{n_matched} / {len(results_df)} clips matched to a track ({n_none} returned none).")
+
+        st.markdown(
+            f"<div style='font-size:11px;color:#6b7280;letter-spacing:2px;"
+            f"margin-bottom:8px;'>RESULTS</div>",
+            unsafe_allow_html=True
+        )
+
+        header = (
+            "<div style='display:flex;padding:8px 12px;"
+            "border-bottom:1px solid #374151;'>"
+            "<div style='width:50%;font-size:11px;color:#6b7280;"
+            "letter-spacing:1px;'>FILE</div>"
+            "<div style='width:50%;font-size:11px;color:#6b7280;"
+            "letter-spacing:1px;'>PREDICTION</div>"
+            "</div>"
+        )
+        rows_html = ""
+        for _, row in results_df.iterrows():
+            pred_color = "#2dd4bf" if row["prediction"] != "none" else "#ef4444"
+            rows_html += (
+                f"<div style='display:flex;padding:10px 12px;"
+                f"border-bottom:1px solid #1f2937;'>"
+                f"<div style='width:50%;font-size:13px;color:#e5e7eb;'>"
+                f"{row['filename']}</div>"
+                f"<div style='width:50%;font-size:13px;color:{pred_color};'>"
+                f"{row['prediction']}</div>"
+                f"</div>"
+            )
+        st.markdown(
+            f"<div style='border:1px solid #1f2937;border-radius:8px;"
+            f"overflow:hidden;margin-bottom:10px;'>{header}{rows_html}</div>",
+            unsafe_allow_html=True
+        )
+
+        st.caption(
+            f"{n_matched} / {len(results_df)} clips matched to a track "
+            f"({n_none} returned none)."
+        )
 
         csv_bytes = results_df.to_csv(index=False).encode("utf-8")
-        st.download_button("Download results.csv", data=csv_bytes,
-                            file_name="results.csv", mime="text/csv")
+        st.download_button(
+            "â¬ Download results.csv", data=csv_bytes,
+            file_name="results.csv", mime="text/csv"
+        )
