@@ -271,15 +271,17 @@ def run_identification(data, sr):
         <h2 style="color: white; margin-top: 4px; font-size: 20px;">
             Where in the song?
         </h2>
-        <p style="color: {MUTED}; font-size: 15px; line-height: 1.6;">
-            The <b style="color: oasis;"> fingerprint hashes<\b> were looked up against every indexed track. Below is the full fingerprint of <i> <\i>
-            reconstructed from the database. Each dot is a stored hash anchor. The highlighted window is exactly where yhe query clip sits inside the full song.
-        </p>
     </div>
   """, unsafe_allow_html=True)
     fig2 = plot_step2(result, database)
     if fig2 is not None:
         st.pyplot(fig2, clear_figure=True)
+        st.markdown(f"""
+        <p style="color: {MUTED}; font-size: 15px; line-height: 1.6;">
+            The <b style="color: oasis;">{timings['n_hashes']:,} fingerprint hashes</b> were looked up against every indexed track. Below is the full fingerprint of <i> <\i>
+            reconstructed from the database. Each dot is a stored hash anchor. The highlighted window is exactly where yhe query clip sits inside the full song.
+        </p>
+  """, unsafe_allow_html=True)
     else:
         st.caption("No matching track to reconstruct against.")
 
@@ -300,7 +302,7 @@ def run_identification(data, sr):
         st.markdown(f"""
         <p style="color: {MUTED}; font-size: 15px; line-height: 1.6;">
             Every matched hash votes for a time offset (database frame minus query frame). Chance matches scatter votes randomly, forming a flat noise floor. A genuine match makes them 
-            converge: <b style="color: {ACCENT_ORANGE};">{peak_count:,} agreed on a single offset<\b>. That spike cannot be a coincidence.
+            converge: <b style="color: {ACCENT_ORANGE};">{peak_count:,} agreed on a single offset</b>. That spike cannot be a coincidence.
         </p>
   """, unsafe_allow_html=True)
     else:
