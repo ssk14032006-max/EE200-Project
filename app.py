@@ -300,7 +300,13 @@ def run_identification(data, sr):
   """, unsafe_allow_html=True)
     fig3, peak_count = plot_step3(result)
     if fig3 is not None:
-        st.pyplot(fig3, clear_figure=True)
+        st.pyplot(fig3, clear_figure=True) 
+        st.markdown(f"""
+        <p style="color: {MUTED}; font-size: 15px; line-height: 1.6;">
+            Every matched hash votes for a time offset (database frame minus query frame). Chance matches scatter votes randomly, forming a flat noise floor. A genuine match makes them 
+            converge: <b style="color: {ACCENT_ORANGE};">{peak_count:,} agreed on a single offset<\b>. That spike cannot be a coincidence.
+        </p>
+  """, unsafe_allow_html=True)
     else:
         st.caption("No matching hashes found against any song in the database.")
 
