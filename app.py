@@ -94,7 +94,7 @@ def load_database():
 
 database = load_database()
 
-library_tab, identify_tab, batch_tab = st.tabs(["◆  LIBRARY", "💿  IDENTIFY", "📼  BATCH"])
+library_tab, identify_tab, batch_tab = st.tabs(["📻 LIBRARY", "💿 IDENTIFY", "📼 BATCH"])
 
 
 # ----------------------------------------------------------------------
