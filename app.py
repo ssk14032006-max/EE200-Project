@@ -275,10 +275,11 @@ def run_identification(data, sr):
   """, unsafe_allow_html=True)
     fig2 = plot_step2(result, database)
     if fig2 is not None:
+        hash_count = timings.get('n_hashes',0)
         st.pyplot(fig2, clear_figure=True)
         st.markdown(f"""
         <p style="color: {MUTED}; font-size: 15px; line-height: 1.6;">
-            The <b style="color: oasis;">{timings['n_hashes']:,} fingerprint hashes</b> were looked up against every indexed track. Below is the full fingerprint of <i> <\i>
+            The <b style="color: oasis;">{hash_count:,} fingerprint hashes</b> were looked up against every indexed track. Below is the full fingerprint of <i> <\i>
             reconstructed from the database. Each dot is a stored hash anchor. The highlighted window is exactly where yhe query clip sits inside the full song.
         </p>
   """, unsafe_allow_html=True)
