@@ -167,11 +167,12 @@ def plot_step3(result):
         color=ACCENT_ORANGE, fontsize=9,
         arrowprops=dict(arrowstyle="->", color=ACCENT_ORANGE),
     )
+    peak_count = ys[peak_idx]
     ax.set_xlabel("time offset (database time − query time), s")
     ax.set_ylabel("# hashes")
     ax.set_title("Step 3 · The alignment spike", fontsize=10)
     plt.tight_layout()
-    return fig
+    return fig, peak_count
 
 
 def render_candidate_bars(candidates):
@@ -293,7 +294,7 @@ def run_identification(data, sr):
         </h2>
         <p style="color: {MUTED}; font-size: 15px; line-height: 1.6;">
             Every matched hash votes for a time offset (database frame minus query frame). Chance matches scatter votes randomly, forming a flat noise floor. A genuine match makes them 
-            converge: <b style="color: {ACCENT_ORANGE};">{int(np.argmax(ys)):,} agreed on a single offset<\b>. That spike cannot be a coincidence.
+            converge: <b style="color: {ACCENT_ORANGE};">{peak_count:,} agreed on a single offset<\b>. That spike cannot be a coincidence.
         </p>
     </div>
   """, unsafe_allow_html=True)
