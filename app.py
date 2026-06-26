@@ -50,7 +50,7 @@ from fingerprint import identify_song
 # ----------------------------------------------------------------------
 # Page setup + dark/teal styling (matches the demo video's look)
 # ----------------------------------------------------------------------
-st.set_page_config(page_title="EE200: Audio Fingerprinting", layout="wide")
+st.set_page_config(page_title="🎵 EE200: Audio Fingerprinting", layout="wide")
 
 ACCENT = "#2dd4bf"
 ACCENT_ORANGE = "#fb923c"
