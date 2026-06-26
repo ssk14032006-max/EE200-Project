@@ -278,7 +278,7 @@ def run_identification(data, sr):
         st.pyplot(fig2, clear_figure=True)
         st.markdown(f"""
         <p style="color: {MUTED}; font-size: 15px; line-height: 1.6;">
-            The <b style="color: oasis;">{len(query_hashes):,} fingerprint hashes</b> were looked up against every indexed track. Below is the full fingerprint of <i> <\i>
+            The <b style="color: oasis;">{n_hashes:,} fingerprint hashes</b> were looked up against every indexed track. Below is the full fingerprint of <i> <\i>
             reconstructed from the database. Each dot is a stored hash anchor. The highlighted window is exactly where yhe query clip sits inside the full song.
         </p>
   """, unsafe_allow_html=True)
