@@ -234,7 +234,7 @@ def render_pipeline_timing(timings, best_offset):
     st.caption(f"total {timings['total_ms']:.0f} ms")
 
 
-def run_identification(timings, data, sr):
+def run_identification(data, sr):
     result = identify_song(data, sr, database)
 
     render_pipeline_timing(result["timings"], result["best_offset"])
