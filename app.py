@@ -293,7 +293,7 @@ def run_identification(data, sr):
         </h2>
         <p style="color: {MUTED}; font-size: 15px; line-height: 1.6;">
             Every matched hash votes for a time offset (database frame minus query frame). Chance matches scatter votes randomly, forming a flat noise floor. A genuine match makes them 
-            converge: <b style="color: {ACCENT_ORANGE};"> agreed on a single offset<\b>. That spike cannot be a coincidence.
+            converge: <b style="color: {ACCENT_ORANGE};">{ys[peak_idx]:,} agreed on a single offset<\b>. That spike cannot be a coincidence.
         </p>
     </div>
   """, unsafe_allow_html=True)
