@@ -76,7 +76,7 @@ SAMPLES_DIR = "samples"
 
 st.markdown(f"""
 <div style="display:flex;align-items:center;gap:10px;margin-bottom:2px;">
-  <div style="🎵font-size:28px;font-weight:800;">EE<span style="color:{ACCENT};">200</span>: Audio Fingerprinting</div>
+  <div style="font-size:28px;font-weight:800;">🎵EE<span style="color:{ACCENT};">200</span>: Audio Fingerprinting</div>
 </div>
 <div style="color:{MUTED};font-size:11px;letter-spacing:2px;margin-bottom:6px;">SIGNALS, SYSTEMS &amp; NETWORKS · PROJECT</div>
 <div style="color:#9ca3af;font-size:14px;margin-bottom:18px;">Index a library of songs as spectrogram fingerprints, then identify any short clip against it.</div>
