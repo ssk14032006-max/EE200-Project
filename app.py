@@ -136,9 +136,9 @@ def plot_step2(result, database):
 
     offset = result["best_offset"] or 0
     duration = result["query_duration"]
-    ax.axvspan(offset, offset + duration, color=ACCENT_ORANGE, alpha=0.15)
-    ax.axvline(offset, color=ACCENT_ORANGE, linewidth=1)
-    ax.axvline(offset + duration, color=ACCENT_ORANGE, linewidth=1)
+    ax.axvspan(offset, offset + duration, color=ACCENT, alpha=0.15)
+    ax.axvline(offset, color=ACCENT, linewidth=1)
+    ax.axvline(offset + duration, color=ACCENT, linewidth=1)
 
     ax.set_xlabel("time (s)"); ax.set_ylabel("frequency (Hz)")
     ax.set_title(f"Full fingerprint of '{os.path.splitext(song)[0]}' — query window highlighted",
@@ -277,9 +277,8 @@ def run_identification(data, sr):
     if fig2 is not None:
         st.markdown(f"""
         <p style="color: {MUTED}; font-size: 15px; line-height: 1.6;">
-            The <b style="color: oasis;">{result['timings']['n_hashes']:,} fingerprint hashes</b> were looked up against every indexed track. Below is the full fingerprint of 
-            <i>>{os.path.splitext(result["song"])[0]} <\i>
-            reconstructed from the database. Each dot is a stored hash anchor. The highlighted window is exactly where yhe query clip sits inside the full song.
+            The <b style="color: {ACCENT};">{result['timings']['n_hashes']:,} fingerprint hashes</b> were looked up against every indexed track. Below is the full fingerprint of 
+            <i>>{os.path.splitext(result["song"])[0]}</i> reconstructed from the database. Each dot is a stored hash anchor. The highlighted window is exactly where yhe query clip sits inside the full song.
         </p>
   """, unsafe_allow_html=True)
         st.pyplot(fig2, clear_figure=True)
