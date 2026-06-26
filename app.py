@@ -298,7 +298,7 @@ def run_identification(data, sr):
         </p>
     </div>
   """, unsafe_allow_html=True)
-    fig3 = plot_step3(result)
+    fig3, peak_count = plot_step3(result)
     if fig3 is not None:
         st.pyplot(fig3, clear_figure=True)
     else:
