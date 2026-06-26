@@ -376,7 +376,7 @@ with identify_tab:
         else:
             with st.spinner("Fingerprinting..."):
                 data, sr = load_audio(query_source, filename=query_name)
-            run_identification(data, sr)
+            run_identification(timings, data, sr)
 
 
 # ----------------------------------------------------------------------
